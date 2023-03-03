@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { CursoService } from './../../services/curso.service';
 import { Component, OnInit } from '@angular/core';
 import { Curso } from 'src/app/models/curso';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-curso',
@@ -10,17 +11,16 @@ import { Curso } from 'src/app/models/curso';
 })
 export class CursoComponent implements OnInit {
 
-  cursos : Curso[] = [
-    {id:1, descricao:"Angular", cargaHoraria:20}
-    ,
-    {id:2, descricao:"HTML", cargaHoraria:40}
-  ];
+  cursos : Curso[] = [];
 
-  constructor() {
+  constructor(private cursoService: CursoService) {
   }
 
   ngOnInit(): void {
+    this.cursoService.pesquisar()
+      .subscribe(cs => this.cursos = cs);
   }
 
-
 }
+
+

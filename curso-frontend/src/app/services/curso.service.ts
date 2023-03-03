@@ -10,13 +10,9 @@ export class CursoService {
 
   constructor(private http: HttpClient) { }
 
-  listar(): Observable<Curso[]> {
+  pesquisar(): Observable<Curso[]> {
     return this.http
-      .get<Curso[]>('http://localhost:8080/curso')
-      .pipe(
-        first(),
-        tap( c => console.log(c) )
-      );
+      .get<Curso[]>('http://localhost:8080/curso');
   }
 
 

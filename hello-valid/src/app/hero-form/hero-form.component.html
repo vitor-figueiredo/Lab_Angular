@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Hero form</h1>
+
+  <form [formGroup]="formHero" (ngSubmit)="onSave()">
+  
+    <div class="form-group mt-3">
+      <label for="name">Nome</label>
+      <input formControlName="name"
+        id="name"
+        placeholder="Nome do herói"
+        class="form-control"
+        autofocus
+        />
+      <vmessages [control]="formHero.controls['name']" 
+        requiredText="Nome é obrigatório"
+        minlengthText="Nome está muito pequeno"
+        />
+    </div>
+
+
+    <div class="form-group mt-3">
+      <label for="inPower">Power</label>
+      <input formControlName="power"        
+        id="inPower"
+        placeholder="Poder do herói"
+        class="form-control"
+        />
+      <vmessages [control]="formHero.controls['power']" 
+        requiredText="Poder é obrigatório"
+        maxlengthText="Poder muito extenso"
+        />
+    </div>
+
+
+    <div class="form-group mt-3">
+      <label for="inAlterEgo">Alter Ego</label>
+      <input formControlName="alterEgo" 
+        id="inAlterEgo"
+        placeholder="Alter ego"        
+        class="form-control">
+    </div>
+
+
+    <button type="submit" 
+      [disabled]="formHero.invalid"
+      class="btn btn-success mt-3">
+        Salvar
+    </button>
+
+    <p>Form Status: {{ formHero.status }}</p>
+  </form>
+
+</div>

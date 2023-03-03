@@ -1,6 +1,6 @@
 <h1>Tabela de Cursos</h1>
 
-<table>
+<table class="table">
     <thead>
       <tr>
         <th scope="row">ID</th>
@@ -10,17 +10,15 @@
     </thead>
 
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Desenvolvimento Angular</td>
-        <td>20</td>
-      </tr>
 
-      <tr>
-        <td>2</td>
-        <td>Dominado o VSCode</td>
-        <td>40</td>
-      </tr>
+      <ng-container *ngFor="let c of cursos">
+        <tr>
+          <td> {{c.id}} </td>
+          <td> {{c.descricao}} </td>
+          <td> {{c.cargaHoraria}} </td>
+        </tr>
+      </ng-container>
+
     </tbody>
 
 </table>

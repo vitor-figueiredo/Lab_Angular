@@ -1,0 +1,16 @@
+
+<div *ngIf="control?.invalid">
+
+  <small *ngIf="control?.errors?.['required']" class="text-danger d-block">
+    {{ requiredText }}
+  </small>
+
+  <small *ngIf="control?.errors?.['minlength']" class="text-danger d-block">
+    {{ minlengthText }}
+  </small>
+
+  <small *ngIf="control?.errors?.['maxlength']" class="text-danger d-block">
+    {{ maxlengthText }}
+  </small>
+
+</div>
